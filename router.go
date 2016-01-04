@@ -14,12 +14,14 @@ func handle_index(w http.ResponseWriter, r *http.Request) {
 		mainpage = string(buff)
 	}
 	var hp map[string]string
-	hp["header"] = "<p>nihao</>"
-
+	hp = make(map[string]string)
+	hp["header"] = "<p>header</>"
+	hp["footer"] = "<p>footer</>"
 	var cs map[string]string
+	cs = make(map[string]string)
 	cs["title"] = "你好"
-
 	var out string
 	out = moetemplate.Render(mainpage, hp, cs)
+
 	w.Write([]byte(out))
 }
