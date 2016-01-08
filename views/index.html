@@ -1,8 +1,26 @@
 {{LoadTemplate(header)}}
 
 <div class="sui-layout">
-  <div class="sidebar">sidebar</div>
-  <div class="content">content</div>
+  	<div class="sidebar" >
+		
+		
+		<ul class="sui-nav nav-list nav-xlarge">
+		  <li class="nav-header">{{=DB}}</li>
+		  
+		  <li><a>日料</a></li>
+		</ul>
+	</div>
+	<style>
+		#pagecontent{
+			background-color:#EFEFEF;
+			padding: 20px;
+		}
+	</style>
+  <div class="content" id="pagecontent" >
+	<div style="min-height:500px;background:white;">
+		
+	</div> 
+  </div>
 </div>
 
 {{LoadTemplate(footer)}}

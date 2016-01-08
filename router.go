@@ -1,25 +1,22 @@
 package main
 
 import (
-	"io/ioutil"
 	"net/http"
 
-	"github.com/golangdeveloper/moetemplate"
+	"github.com/golangframework/file"
+	"github.com/golangframework/moetemplate"
 )
 
 func handle_index(w http.ResponseWriter, r *http.Request) {
-	var mainpage string
-	buff, err := ioutil.ReadFile(root + "/views/" + "index.html")
-	if err == nil {
-		mainpage = string(buff)
-	}
+	var mainpage string = file.ReadAllText(root + "/views/index.html")
 	var hp map[string]string
 	hp = make(map[string]string)
-	hp["header"] = "<p>header</>"
-	hp["footer"] = "<p>footer</>"
+	hp["header"] = file.ReadAllText(root + "/views/header.part")
+	hp["footer"] = file.ReadAllText(root + "/views/footer.part")
+
 	var cs map[string]string
 	cs = make(map[string]string)
-	cs["title"] = "你好"
+	cs["title"] = "MongoAdmin"
 	var out string
 	out = moetemplate.Render(mainpage, hp, cs)
 
