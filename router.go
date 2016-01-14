@@ -13,10 +13,15 @@ func router(w http.ResponseWriter, r *http.Request) {
 	urlpath := r.URL.Path
 	if moeregexp.IsMatch("^/admin$", urlpath) {
 		handle_admin(w, r)
+	} else {
+		if moeregexp.IsMatch(httpmongo.Mongo_path, urlpath) {
+			httpmongo.Httphandler_mongo("127.0.0.1:27017", w, r)
+		} else {
+			out := ""
+			w.Write([]byte(out))
+		}
 	}
-	if moeregexp.IsMatch(httpmongo.Mongo_path, urlpath) {
-		httpmongo.Httphandler_mongo("127.0.0.1:27017", w, r)
-	}
+
 }
 func handle_admin(w http.ResponseWriter, r *http.Request) {
 	var mainpage string = file.ReadAllText(root + "/views/index.html")
