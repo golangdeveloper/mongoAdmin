@@ -27,8 +27,8 @@ func main() {
 	staticDirHandler(mux, "/assets/", root+"/assets", 0)
 	mux.HandleFunc("/", router)
 
-	err := http.ListenAndServe(":8090", mux)
-	log.Println("http.ListenAndServe(:8090)")
+	err := http.ListenAndServe(":80", mux)
+	log.Println("http.ListenAndServe(:80)")
 	if err != nil {
 		log.Fatal("http.ListenAndServe:", err.Error())
 	}

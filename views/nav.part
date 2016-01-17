@@ -1,0 +1,15 @@
+<div class="sui-navbar" style="    margin-bottom: 0px;">
+  <div class="navbar-inner"  style="background:#6dc3ea;padding-top: 10px;padding-bottom: 10px;border: none;"><a href="/admin" class="sui-brand">mongoAdmin</a>
+
+    <ul class="sui-nav pull-left">
+      <li><a href="#">帮助</a></li>
+      <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">个人中心 <i class="caret"></i></a>
+        <ul role="menu" class="sui-dropdown-menu">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">项目组成员</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

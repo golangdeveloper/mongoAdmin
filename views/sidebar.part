@@ -1,0 +1,39 @@
+<div class="sidebar" style="width: 250px;background-color:#FBFAFA;">
+    <ul class="sui-nav nav-list" id="DB_list">
+        <script type="text/javascript" src="/assets/js/jsonformat.js"></script>
+        <script type="text/javascript">
+            $(window).load(function () {
+                showdbs()
+            })
+            function showdbs(){
+                $.get("/mongo.show dbs",function(data,status){
+                    var dbs=data.split('\n')
+                    if(dbs.length>=1){
+                        for(var i=0;i<dbs.length;i++){
+                            var DBli='<li class="DB" id='+"'DB_"+dbs[i]+"'"+'><a>'+dbs[i]+'</a></li>'
+                            $('#DB_Clist').append(DBli)
+                        }
+
+                    }
+                })
+            }
+            function C_showjson(){
+                var Cname=(this.id).substring(2)
+                $.get("/mongo/"+$('#DB').text()+"/"+Cname+".find({})",function(data,status){
+                    $('#dataarea').text(formatJson(data))
+                })
+            }
+        </script>
+
+    </ul>
+</div>
+<script  type="text/javascript">
+    $.get("/mongo/"+dbs[0]+".show collections",function(data2,status){
+        var cs=data2.split('\n')
+        for(var i=0;i<cs.length;i++){
+            var cli='<li class="C" id='+"'C_"+cs[i]+"'"+'><a>'+cs[i]+'</a></li>'
+            $('#DB_Clist').append(cli)
+        }
+        $('.C').on("click",C_showjson)
+    })
+</script>

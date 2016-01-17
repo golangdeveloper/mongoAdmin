@@ -1,0 +1,19 @@
+<!--{{LoadTemplate(header.part)}}-->
+<!--{{LoadTemplate(nav.part)}}-->
+<div class="sui-layout" style="height: 100%;">
+    <script>
+        $(window).resize(resizewindow)
+        $(window).load(function () {
+            resizewindow()
+        })
+        function resizewindow() {
+            $('.sui-layout').height($(window).height() - 62)
+        }
+    </script>
+    <!--{{LoadTemplate(sidebar.part)}}-->
+    <div class="content" style="background: white;padding: 20px;margin-left: 270px;">
+
+    </div>
+</div>
+
+<!--{{LoadTemplate(footer.part)}}-->
