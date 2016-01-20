@@ -8,12 +8,13 @@ import (
 	"github.com/golangframework/File"
 	"github.com/golangframework/JSON"
 	"github.com/golangframework/Object"
+	"github.com/golangframework/htmlparts"
 	"github.com/golangframework/httpmongo"
 	"github.com/golangframework/moeregexp"
-	"github.com/golangframework/moetemplate"
 )
 
 var mongodb = ""
+var port = ""
 
 func getmongo() string {
 	if mongodb == "" {
@@ -22,13 +23,15 @@ func getmongo() string {
 			log.Print("无法读取配置文件")
 			panic("无法读取配置文件")
 		} else {
-			var config JSON.JSON
+			var config JSON.JSON = JSON.JSON{}
 			json.Unmarshal(conbs, &config)
-			log.Print(string(conbs))
+			log.Print(config)
 			mongodb = Object.Tostring(config["mongodb"])
+			port = Object.Tostring(config["port"])
 			return mongodb
 		}
 	} else {
+		log.Print(mongodb)
 		return mongodb
 	}
 }
@@ -45,8 +48,6 @@ func router(w http.ResponseWriter, r *http.Request) {
 	} else {
 		switch urlpath[0:] {
 		case "/":
-			fallthrough
-		case "/admin":
 			handle_admin(w, r)
 		default:
 			w.Write([]byte("404"))
@@ -54,20 +55,13 @@ func router(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-var htmlparts = map[string]string{}
+var hps = map[string]string{}
 
-func Gethtmlparts() map[string]string {
-	if htmlparts != nil && len(htmlparts) > 1 {
-		return htmlparts
-	} else {
-		htmlparts = moetemplate.LoadPartFile(root + "/views/")
-		return htmlparts
-	}
-}
 func handle_admin(w http.ResponseWriter, r *http.Request) {
+	hps = htmlparts.LoadPartFile(root + "/views/")
 	mainpage, _ := File.ReadAllText(root + "/views/admin.html")
 	var cs map[string]string = map[string]string{}
 	cs["title"] = title + ""
-	var out = moetemplate.Render(mainpage, Gethtmlparts(), cs)
+	var out = htmlparts.Render(mainpage, hps, cs)
 	w.Write([]byte(out))
 }

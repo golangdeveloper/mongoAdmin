@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            var start=new Date();
+            var startms=start.getTime()
+            for(var i=0;i<100;i++)
+            $.ajax({
+    url:'http://localhost/mongo/DB/C.insert({"name":"'+i+'"})', async : false, type : "POST",
+    success :function(data){console.log(data)}
+            })
+            var end=new Date();
+            var endms=end.getTime()
+            console.log(endms-startms)
+        })
+        </script>
+    </body>
+    </html>

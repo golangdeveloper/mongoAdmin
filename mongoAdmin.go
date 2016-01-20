@@ -26,9 +26,11 @@ func main() {
 	var mux = http.NewServeMux()
 	staticDirHandler(mux, "/assets/", root+"/assets", 0)
 	mux.HandleFunc("/", router)
+	log.Println("mongoAdmin 启动中")
+	log.Println("connectmongo:" + getmongo() + "")
+	log.Println("http.ListenAndServe(:" + port + ")")
+	err := http.ListenAndServe(":"+port, mux)
 
-	err := http.ListenAndServe(":80", mux)
-	log.Println("http.ListenAndServe(:80)")
 	if err != nil {
 		log.Fatal("http.ListenAndServe:", err.Error())
 	}
