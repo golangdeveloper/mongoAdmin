@@ -43,7 +43,17 @@ buttons {
   background-color: #fff;
   transition: transform 0.2s;
 }
-
+#sidedrawer_cmd {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  right: -200px;
+  overflow: auto;
+  z-index: 2;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
 #content-wrapper {
   min-height: 100%;
   overflow-x: hidden;
@@ -55,12 +65,15 @@ buttons {
 @media (min-width: 768px) {
   #header {
     left: 200px;
+    right: 200px;
   }
   
   #sidedrawer_dbc {
     transform: translate(200px);
   }
-  
+  #sidedrawer_cmd {
+    transform: translate(-200px);
+  }
   #content-wrapper {
     margin-left: 200px;
   }
@@ -73,7 +86,9 @@ buttons {
   body.hide-sidedrawer #sidedrawer_dbc {
     transform: translate(0px);
   }
-  
+  body.hide-sidedrawer #sidedrawer_cmd {
+    transform: translate(0px);
+  }
   body.hide-sidedrawer #content-wrapper {
     margin-left: 0;
   }
@@ -87,7 +102,9 @@ buttons {
 #sidedrawer_dbc.active {
   transform: translate(200px);
 }
-
+#sidedrawer_cmd.active {
+  transform: translate(-200px);
+}
 
 /**
  * Header CSS

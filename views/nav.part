@@ -1,11 +1,11 @@
 <header id="header">
   <div class="mui-appbar mui--appbar-line-height">
     <div class="mui-container-fluid">
-      <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">A</a>
-      <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">B</a>
+      <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-DBC">A</a>
+      <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-DBC">B</a>
       <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">mongoAdmin</span>
-      <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">C</a>
-      <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">D</a>
+      <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-CMD">C</a>
+      <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-CMD">D</a>
     </div>
   </div>
 </header>

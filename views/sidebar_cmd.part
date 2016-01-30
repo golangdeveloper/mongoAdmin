@@ -1,30 +1,3 @@
 <div id="sidedrawer_cmd" class="mui--no-user-select">
-    <div id="sidedrawer_cmd-brand" class="mui--appbar-line-height mui--text-title">mongo://127.0.0.1:27017</div>
-    <div class="mui-divider"></div>
-    <ul>
-        <li>
-            <strong>DB</strong>
-            <ul>
-                <li><a href="#">C1</a></li>
-                <li><a href="#">C2</a></li>
-                <li><a href="#">C3</a></li>
-            </ul>
-        </li>
-        <li>
-            <strong>DB</strong>
-            <ul>
-                <li><a href="#">C1</a></li>
-                <li><a href="#">C2</a></li>
-                <li><a href="#">C3</a></li>
-            </ul>
-        </li>
-        <li>
-            <strong>D3</strong>
-            <ul>
-                <li><a href="#">C1</a></li>
-                <li><a href="#">C2</a></li>
-                <li><a href="#">C3</a></li>
-            </ul>
-        </li>
-    </ul>
+    CMDS
 </div>
